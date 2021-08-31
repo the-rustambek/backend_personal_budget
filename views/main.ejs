@@ -1,0 +1,149 @@
+    <%- include("parts/header") %>
+<% var data = data || []%>
+<% var expenseData = expenseData || []%>
+<% var x %>
+<% var y %>
+
+<section>
+    <div class="container mt-2 d-flex   flex-column">
+        <div class="d-flex justify-content-between">
+            <h1 class=mb-2 text-center>Expense tracker</h1>
+
+            <div class=" d-flex justify-content-center align-items-center ">
+                <p class="fw-bolder">Your Balance</p>
+                <p class="fw-bold display-5 ms-2"><%= x-y  %><%= "$" %></p>
+            </div>
+        </div>
+
+
+
+        <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-5">
+
+                <div class="card text-white bg-dark mb-3 me-4" >
+                    <div class="card-header">Income</div>
+                    <div class="card-body">
+                        <p class="card-text text-warning"><%= x  %><%= "$" %> </p>
+
+                    </div>
+                </div>
+                <h2> Income history</h2>
+                <div class="history mt-2 mb-4 pb-4" style="height:21vh;overflow: scroll;
+            overflow-x: hidden;">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Cost name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% data.forEach(function(item)  { %>
+                            <tr>
+
+                                <td><%= item.name %></td>
+                                <td><%= item.price  %><%= "$" %> </td>
+                                <td><%= item.time %></td>
+
+                            </tr>
+
+                            <% }) %>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" ">
+                    <form method="POST">
+
+                        <label class="form-label flex-start">Text</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                            placeholder="Enter text..." required />
+
+
+
+                        <label class="form-label mt-1">Amount</label>
+                        <input type="number" name="price" class="form-control" required />
+
+
+                        <button type="submit" class="btn btn-primary mt-2 w-100">Add transaction</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-5">
+
+                <div class="card text-white bg-danger mb-3 px-3 ms-4" ">
+                    <div class="card-header">Expense</div>
+                    <div class="card-body">
+
+                        <p class="card-text text-light"><%= y  %><%= "$" %></p>
+                    </div>
+                </div>
+
+                <h2>OutCome history</h2>
+                <div class="history mt-2 mb-4 pb-4" style="height:21vh;overflow: scroll;
+            overflow-x: hidden;">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Cost name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% expenseData.forEach(function(item)  { %>
+                            <tr>
+
+                                <td><%= item.expenseName %></td>
+                                <td><%= item.expensePrice  %><%= "$" %> </td>
+                                <td><%= item.time %></td>
+
+                            </tr>
+
+                            <% }) %>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" ">
+                    <form method="POST" action="/outcome">
+
+                        <label class="form-label flex-start">Text</label>
+                        <input type="text" name="expenseName" class="form-control" id="exampleInputEmail1"
+                            placeholder="Enter text..." required />
+
+
+
+                        <label class="form-label mt-1">Amount</label>
+                        <input type="number" name="expensePrice" class="form-control" required />
+
+
+                        <button type="submit" class="btn btn-primary mt-2 w-100">Add transaction</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 
+
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+</body>
+
+</html> -->

@@ -1,0 +1,23 @@
+<%- include("parts/header") %>
+<% var error %>
+
+<section>
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+
+        <form class="mt-4" method="POST" action="/signup">
+            <% if(error) { %>
+                <div class="alert my-2 alert-danger">
+                    <%= error %>
+                </div>
+                <% } %>
+            <h1 class="mb-4">Sign up</h1>
+            <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required />
+            <input type="password" name="password" class="form-control form-control-lg mt-2" placeholder="password"
+                required />
+            <button class="btn-outline-primary btn-lg w-100 mt-2 rounded-0">
+                Sign up
+            </button>
+            <a href="/" class="btn  btn-lg btn-success-outline mt-2 w-100">Login</a>
+        </form>
+    </div>
+</section>
